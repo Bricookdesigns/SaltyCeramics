@@ -1,0 +1,145 @@
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+nav h1 {
+    font-family: 'Chewy', cursive;
+    font-size: 36px;
+    color: #F0E095;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: #F0E095;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #C5D0D2;
+}
+
+
+body {
+    background-color: #824D2E;
+    color: #F1EBDB;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Navbar styling */
+header {
+    background-color: #7CBAC6;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* Order form section styling */
+.order-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.order-form {
+    width: 400px;
+    max-width: 100%;
+    background: #F1EBDB;
+    color: #824D2E;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-top: 30px; /* Space from navbar */
+    margin-bottom: 30px; /* Space from bottom of page */
+}
+
+.order-form h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-family: 'Chewy', cursive;
+}
+
+.order-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.order-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.order-form button {
+    padding: 10px;
+    background: #7CBAC6;
+    color: #F1EBDB;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.order-form button:hover {
+    background: #5A9EA8;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #7CBAC6;
+    color: #F1EBDB;
+    font-size: 0.9em;
+    margin-top: auto; /* Ensure footer stays at the bottom */
+}
+
+/* Responsive styling */
+@media (max-width: 480px) {
+    .order-form {
+        width: 90%;
+        padding: 20px;
+    }
+}
