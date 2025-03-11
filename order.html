@@ -6,83 +6,89 @@
     <title>Salty Ceramics</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Chewy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Navbar Styling */
+      /* Navbar */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 3;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+    }
+
+    nav h1 {
+        font-family: 'Chewy', cursive;
+        font-size: 36px;
+        color: #F0E095;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        gap: 30px;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+    }
+
+    nav ul li a {
+        color: #F0E095;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #C5D0D2;
+    }
+
+
+        /* Main Content Section */
+        .content {
+            text-align: center;
+            margin-top: 80px; /* Space for the fixed navbar */
+        }
+
+        /* Centering the iframe below the welcome text */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 120px; /* Adjust this margin to move the form further down */
+            padding-bottom: 50px;
+        }
+
+        iframe {
+            border: none;
+            width: 640px; /* Set a fixed width */
+            height: 1200px; /* Set a fixed height */
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav id="navbar">
-        <h1>Salty Ceramics</h1>
-      <ul>
-            <li><a href="order.html">Order</a></li> <!-- Link to Order page -->
-            <li><a href="#option2">Option 2</a></li>
-            <li><a href="#option3">Option 3</a></li>
+      <!-- Navbar -->
+      <nav id="navbar">
+        <h1><a href="index.html">Salty Ceramics</a></h1>
+        <ul>
+            <li><a href="order.html">Order</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <!-- Video Background -->
-    <div class="video-container">
-        <video autoplay muted loop id="myVideo">
-            <source src="videos/herovideo.mp4" type="video/mp4">
-            <source src="videos/herovideo.webm" type="video/webm">
-            Your browser does not support the video tag.
-        </video>
+    <!-- Google Form Embed -->
+    <div class="form-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAKVAszyNX5PMrfkybMy_iDYc7xo9kfkGcqTUyUmuAqw8ILA/viewform?embedded=true" width="640" height="1200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
-
-    <!-- Main Content Section (Welcome Text) -->
-    <div class="content">
-        <h1>Welcome message here Salty Ceramics</h1>
-        <p>Insert cute welcome text salty ceramics here all about cups and mugs and ocean and things!!!</p>
-    </div>
-
-    <!-- Section 1 -->
-    <section class="new-section" id="option1">
-        <div class="section-content">
-            <div class="section-image">
-                <img src="images/watermug.png" alt="Ceramic Image">
-            </div>
-            <div class="section-text">
-                <h1>Mugs & Dishes & Bowls oh my!!!</h1>
-                <p>Something fun about how we love good vibes mugs & plates and ceramics and all handmade pretty things!!!</p>
-                <a href="#" class="cta-button">Learn More</a> <!-- Pill-shaped button -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 2 -->
-    <section class="new-section-alternate" id="option2">
-        <div class="section-content">
-            <div class="section-text">
-                <h1>Mugs & Dishes & Bowls oh my!!!</h1>
-                <p>Something fun about how we love good vibes mugs & plates and ceramics and all handmade pretty things!!!</p>
-                <a href="#" class="cta-button">Learn More</a> <!-- Pill-shaped button -->
-            </div>
-            <div class="section-image">
-                <img src="images/mugs.png" alt="Ceramic Image">
-            </div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
-    <script src="home.js"></script>
-
-    <section class="third-section">
-        <div class="section-content">
-            <!-- Video on the left -->
-            <div class="section-video">
-                <video autoplay muted loop class="video-embed">
-                    <source src="videos/ringvideo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            
-            <!-- Text and Button on the right -->
-            <div class="section-text">
-                <h1>Ring Ring!!! It's your local cermamic business calling</h1>
-                <p>We heard you need a ring dish!!! hee hee</p>
-                <a href="#" class="cta-button">Shop Now</a> <!-- Button -->
-            </div>
-        </div>
-    </section>
-    
-
 </body>
 </html>

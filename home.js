@@ -171,3 +171,32 @@ document.addEventListener("touchmove", (event) => {
 });
 
 
+// Slider 2 (for the second section)
+const slider2 = document.getElementById('slider2');
+const prevBtn2 = document.getElementById('prevBtn2');
+const nextBtn2 = document.getElementById('nextBtn2');
+let currentIndex2 = 0;
+const slides2 = slider2.querySelectorAll('.slide');
+
+function updateSliderPosition2() {
+    const slideWidth = slides2[0].clientWidth;
+    slider2.style.transform = `translateX(-${currentIndex2 * slideWidth}px)`;
+}
+
+nextBtn2.addEventListener('click', function() {
+    if (currentIndex2 < slides2.length - 1) {
+        currentIndex2++;
+    } else {
+        currentIndex2 = 0;
+    }
+    updateSliderPosition2();
+});
+
+prevBtn2.addEventListener('click', function() {
+    if (currentIndex2 > 0) {
+        currentIndex2--;
+    } else {
+        currentIndex2 = slides2.length - 1;
+    }
+    updateSliderPosition2();
+});

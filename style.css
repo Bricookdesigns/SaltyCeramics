@@ -32,6 +32,18 @@ nav h1 {
     color: #F0E095;
 }
 
+nav h1 a {
+    font-family: 'Chewy', cursive;
+    color: #F0E095;
+    text-decoration: none;
+    font-size: 36px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav h1 a:hover {
+    color: #C5D0D2;
+}
 nav ul {
     list-style-type: none;
     display: flex;
