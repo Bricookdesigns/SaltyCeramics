@@ -34,9 +34,10 @@ nav h1 {
 
 nav h1 a {
     font-family: 'Chewy', cursive;
+
     color: #F0E095;
     text-decoration: none;
-    font-size: 36px;
+    font-size: 18px;
     font-weight: 600;
     transition: color 0.3s;
 }
