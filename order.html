@@ -3,92 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salty Ceramics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Chewy&display=swap" rel="stylesheet">
+    <title>Custom Questionnaire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Modak&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
     <style>
-        /* Navbar Styling */
-      /* Navbar */
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 20px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 3;
-        background-color: transparent;
-        transition: background-color 0.3s ease;
-    }
-
-    nav h1 {
-        font-family: 'Chewy', cursive;
-        font-size: 36px;
-        color: #F0E095;
-    }
-
-    nav ul {
-        list-style-type: none;
-        display: flex;
-        gap: 30px;
-        margin: 0;
-    }
-
-    nav ul li {
-        display: inline-block;
-    }
-
-    nav ul li a {
-        color: #F0E095;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: 600;
-        transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-        color: #C5D0D2;
-    }
-
-
-        /* Main Content Section */
-        .content {
-            text-align: center;
-            margin-top: 80px; /* Space for the fixed navbar */
+        /* Ensure full viewport height for the page */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Centering the iframe below the welcome text */
-        .form-container {
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f9f9f9;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 120px; /* Adjust this margin to move the form further down */
-            padding-bottom: 50px;
+            height: 100vh;
+            margin: 0;
+            position: relative;  /* Ensure content is above the video */
         }
 
-        iframe {
+        .questionnaire-container {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 15px;
             border: none;
-            width: 640px; /* Set a fixed width */
-            height: 1200px; /* Set a fixed height */
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-family: 'Modak', cursive;
+        }
+
+        button:disabled {
+            background-color: #ddd;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        #question-container {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px); /* Ensures space between input and container */
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            text-align: center; /* Center text inside the input box */
+            box-sizing: border-box; /* Ensure padding is included in the width */
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        #question-container p {
+            margin: 0;
+        }
+
+        .summary-container {
+            text-align: left;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            max-height: 200px;
+        }
+
+        .checkbox-container {
+            margin-top: 20px;
+        }
+
+        .multiple-choice {
+            text-align: left;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
+
       <!-- Navbar -->
       <nav id="navbar">
         <h1><a href="index.html">Salty Ceramics</a></h1>
         <ul>
             <li><a href="order.html">Order</a></li>
             <li><a href="Gallery.html">Gallery</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="About.html">About</a></li>
         </ul>
     </nav>
 
-    <!-- Google Form Embed -->
-    <div class="form-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAKVAszyNX5PMrfkybMy_iDYc7xo9kfkGcqTUyUmuAqw8ILA/viewform?embedded=true" width="640" height="1200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    <!-- Main content: Questionnaire -->
+    <div class="questionnaire-container">
+        <div id="question-container">
+            <!-- Question and input field will be dynamically inserted here -->
+        </div>
+        <div class="navigation">
+            <button id="prev-btn" onclick="prevQuestion()">Previous</button>
+            <button id="next-btn" onclick="nextQuestion()">Next</button>
+        </div>
+        <div id="submit-container" style="display: none;">
+            <!-- Summary of answers will appear here -->
+            <div class="summary-container" id="summary-container">
+                <!-- Summary will be displayed here -->
+            </div>
+            <!-- Checkbox asking if the user wants a copy of the answers -->
+            <div class="checkbox-container">
+                <label>
+                    <input type="checkbox" id="email-copy-checkbox"> Would you like a copy of your answers emailed to you?
+                </label>
+            </div>
+            <!-- Submit button -->
+            <button id="submit-btn" onclick="submitForm()">Submit</button>
+        </div>
     </div>
+
+    <script>
+        // Array of questions
+        const questions = [
+            "What is your name?",
+            "Email Address for order updates?",
+            "Phone number?",
+            "Mailing Address? (if shipping is required)",
+            "What would you like to be custom made for you?",
+            "If other, please describe what you want made!",
+            "Do you have a specific design or vibe in mind?",
+            "If you have any pictures or a Pinterest board of inspo, please submit them here",
+            "Do you have an estimated budget and timeframe?",
+            "How many pieces do you need made?",
+        ];
+
+        let currentQuestionIndex = 0;
+        const answers = [];  // Store answers
+        let uploadedImage = null; // Store uploaded image
+
+        // Function to display the current question
+        function displayQuestion() {
+            const questionContainer = document.getElementById('question-container');
+            const question = questions[currentQuestionIndex];
+            questionContainer.innerHTML = `
+                <p>Question ${currentQuestionIndex + 1} of ${questions.length}:</p>
+                <p>${question}</p>
+                <input type="text" id="answer" placeholder="Your answer..." value="${answers[currentQuestionIndex] || ''}">
+            `;
+            if (question === "What would you like to be custom made for you?") {
+                questionContainer.innerHTML = `
+                    <p>${question}</p>
+                    <div class="multiple-choice">
+                        <label><input type="radio" name="custom-option" value="dinnerware" onchange="toggleOtherText()"> Dinnerware (cups, plates, bowls, mugs, etc)</label><br>
+                        <label><input type="radio" name="custom-option" value="home-decor" onchange="toggleOtherText()"> Home decor (vases, coffee table trays, candlestick holders, coasters, etc)</label><br>
+                        <label><input type="radio" name="custom-option" value="other" onchange="toggleOtherText()"> Other (please explain below)</label>
+                    </div>
+                    <input type="text" id="answer" placeholder="Your explanation (if 'Other')" value="${answers[currentQuestionIndex] || ''}" style="display: none;">
+                `;
+            }
+            if (question === "If you have any pictures or a Pinterest board of inspo, please submit them here") {
+                questionContainer.innerHTML += `
+                    <input type="file" id="image-upload" onchange="previewImage(event)">
+                    <div id="image-preview-container"></div>
+                `;
+            }
+
+            // Enable/disable buttons based on the question index
+            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
+            document.getElementById('next-btn').disabled = currentQuestionIndex === questions.length - 1;
+
+            // Show the Submit button on the last question
+            document.getElementById('submit-container').style.display = currentQuestionIndex === questions.length - 1 ? 'block' : 'none';
+        }
+
+        // Toggle the "Other" text box visibility
+        function toggleOtherText() {
+            const otherTextBox = document.getElementById('answer');
+            const otherOptionSelected = document.querySelector('input[name="custom-option"]:checked').value === 'other';
+            otherTextBox.style.display = otherOptionSelected ? 'block' : 'none';
+        }
+
+        // Function to go to the next question
+        function nextQuestion() {
+            const currentAnswer = document.getElementById('answer').value;
+            const customOption = document.querySelector('input[name="custom-option"]:checked');
+
+            // Validate if custom question is answered
+            if (currentQuestionIndex === 4 && !customOption) {
+                alert("Please select an option for the custom question.");
+                return;
+            }
+
+            if (currentQuestionIndex === 4 && customOption.value === 'other' && !currentAnswer.trim()) {
+                alert("Please provide an explanation for 'Other'.");
+                return;
+            }
+
+            // Save the current answer
+            if (currentQuestionIndex === 4) {
+                answers[currentQuestionIndex] = customOption ? customOption.value : currentAnswer;
+            } else {
+                answers[currentQuestionIndex] = currentAnswer;
+            }
+
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion();
+            }
+        }
+
+        // Function to go to the previous question
+        function prevQuestion() {
+            const currentAnswer = document.getElementById('answer').value;
+            answers[currentQuestionIndex] = currentAnswer;
+
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion();
+            }
+        }
+
+        // Function to preview the uploaded image
+        function previewImage(event) {
+            const previewContainer = document.getElementById('image-preview-container');
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewContainer.innerHTML = `
+                        <img src="${e.target.result}" alt="Image preview" style="max-width: 100px; max-height: 100px; margin-top: 10px;">
+                    `;
+                    uploadedImage = e.target.result;  // Store the image as base64 data
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Function to generate the content of the email with image attachment
+        function generateEmailContent() {
+            let content = '';
+            questions.forEach((question, index) => {
+                content += `<p><strong>${question}</strong></p>`;
+                content += `<p>${answers[index] || 'No answer'}</p>`;
+                content += `<hr>`;
+            });
+
+            return content;
+        }
+
+        // Function to handle form submission with image attachment
+        async function submitForm() {
+            const clientEmail = answers[1]; // Get the client's email (it should be at index 1 based on your form)
+            const yourEmail = "bricookdesigns@gmail.com"; // Your email (admin email)
+
+            const subject = "New Custom Questionnaire Submission";
+            const content = generateEmailContent();
+            const sendCopy = document.getElementById('email-copy-checkbox').checked; // Check if the user wants a copy
+
+            let recipients = [{ email: yourEmail }];  // Send to your email by default
+            if (sendCopy) {
+                recipients.push({ email: clientEmail }); // Send a copy to the client's email if checked
+            }
+
+            // Email data
+            const emailData = {
+                sender: { email: "bricookdesigns@gmail.com" },  // Your sender email
+                to: recipients,
+                subject: subject,
+                htmlContent: content,
+                attachment: []  // This will hold the image attachment
+            };
+
+            // If there is an image, add it as an attachment
+            if (uploadedImage) {
+                const base64Data = uploadedImage.split(',')[1]; // Extract the base64 string (without the data URL prefix)
+                emailData.attachment.push({
+                    content: base64Data, // Base64 image data
+                    name: "uploaded_image.jpg", // The name of the file
+                    contentType: "image/jpeg" // The image MIME type
+                });
+            }
+
+            try {
+                // Send form data to Sendinblue API using fetch
+                const response = await fetch("https://api.sendinblue.com/v3/smtp/email", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "api-key": "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",  // Your API key
+                    },
+                    body: JSON.stringify(emailData),
+                });
+
+                if (response.ok) {
+                    alert('Thank you for submitting your responses!');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';  // Redirect to a thank-you or homepage
+                    }, 2000);
+                } else {
+                    const responseText = await response.text(); // Get the error response from Sendinblue
+                    console.error("Error response from Sendinblue:", responseText);
+                    alert('There was an error submitting your order. Please try again later.');
+                }
+            } catch (error) {
+                console.error("Error submitting form: ", error);
+                alert('There was an error submitting your order. Please try again later.');
+            }
+        }
+
+        // Initialize the first question
+        displayQuestion();
+    </script>
 </body>
 </html>
