@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><a href="index.html">Salty Ceramics</a></title>
+    <title>Salty Ceramics</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Chewy&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     
@@ -19,70 +19,52 @@
         </ul>
     </nav>
 
-    <div class="video-container">
-        <video autoplay muted loop id="myVideo">
-            <source src="videos/herovideo.mp4" type="video/mp4">
-            <source src="videos/herovideo.webm" type="video/webm">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+    <!-- Grid Container for Sections (Subsequent Rows) -->
+    <div class="sections-grid">
+        <section class="grid-row">
+            <img src="images/HomeHeroImage.png">
+        </section>
 
-    
-    <div class="content">
-        <h1>Welcome message here Salty Ceramics</h1>
-        <p>Insert cute welcome text salty ceramics here all about cups and mugs and ocean and things!!!</p>
-    </div>
-
-    
-    <section class="new-section" id="option1">
-        <div class="section-content">
-            <div class="section-image">
+        <!-- First Section (Row 2) -->
+        <section class="grid-row">
+            <div class="row-left">
                 <img src="images/watermug.png" alt="Ceramic Image">
             </div>
-            <div class="section-text">
+            <div class="row-right">
                 <h1>Mugs & Dishes & Bowls oh my!!!</h1>
                 <p>Something fun about how we love good vibes mugs & plates and ceramics and all handmade pretty things!!!</p>
-                <a href="#" class="cta-button">Learn More</a> 
             </div>
-        </div>
-    </section>
-
+        </section>
     
-    <section class="new-section-alternate" id="option2">
-        <div class="section-content">
-            <div class="section-text">
+        <!-- Second Section (Row 3) -->
+        <section class="grid-row">
+            <div class="row-left">
                 <h1>Mugs & Dishes & Bowls oh my!!!</h1>
                 <p>Something fun about how we love good vibes mugs & plates and ceramics and all handmade pretty things!!!</p>
-                <a href="#" class="cta-button">Learn More</a>
             </div>
-            <div class="section-image">
+            <div class="row-right">
                 <img src="images/mugs.png" alt="Ceramic Image">
             </div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
-    <script src="home.js"></script>
-
-    <section class="third-section">
-        <div class="section-content">
-            
-            <div class="section-video">
+        </section>
+    
+        <!-- Third Section (Row 4) -->
+        <section class="grid-row">
+            <div class="row-left">
                 <video autoplay muted loop class="video-embed">
                     <source src="videos/ringvideo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            
-            
-            <div class="section-text">
-                <h1>Ring Ring!!! It's your local cermamic business calling</h1>
+            <div class="row-right">
+                <h1>Ring Ring!!! It's your local ceramic business calling</h1>
                 <p>We heard you need a ring dish!!! hee hee</p>
-                <a href="#" class="cta-button">Shop Now</a> 
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     
+
+    <script src="script.js"></script>
+    <script src="home.js"></script>
 
 </body>
 </html>

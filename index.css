@@ -1,0 +1,286 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* General body styling */
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for all sections */
+.sections-grid {
+    display: block; /* Ensures the sections are stacked one below the other */
+    width: 100%;
+}
+
+/* Each grid section (row) */
+.grid-row {
+    display: flex; /* Use flexbox to create two columns */
+    width: 100%;
+}
+
+/* Styling for images inside the left column */
+.grid-row img {
+    width: 100%;
+    height: 900px;
+}
+
+/* Left column styling */
+.row-left {
+    flex: 1; /* Takes up 50% of the width */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Right column styling */
+.row-right {
+    flex: 1; /* Takes up 50% of the width */
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Styling for images inside the left column */
+.row-left img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Styling for video inside the left column */
+.row-left .video-embed {
+    width: 100%;
+    height: 100%;
+}
+
+/* Styling for text inside the right column */
+.row-right h1 {
+    font-family: 'Chewy', cursive;
+    font-size: 32px;
+    color: #F1EBDB;
+    margin-bottom: 15px;
+}
+
+.row-right p {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: #F1EBDB;
+    line-height: 1.6;
+}
+
+/* Styling for text inside the right column */
+.row-left h1 {
+    font-family: 'Chewy', cursive;
+    font-size: 32px;
+    color: #F1EBDB;
+    margin-bottom: 15px;
+}
+
+.row-left p {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: #F1EBDB;
+    line-height: 1.6;
+}
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .grid-row {
+        flex-direction: column; /* Stack the left and right columns vertically */
+    }
+}
+
+
+
+
+
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+nav h1 {
+    font-family: 'Chewy', cursive;
+    font-size: 36px;
+    color: #F0E095;
+}
+
+nav h1 a {
+    font-family: 'Chewy', cursive;
+
+    color: #F0E095;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav h1 a:hover {
+    color: #C5D0D2;
+}
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: #F0E095;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #C5D0D2;
+}
+
+/* Video Background */
+.video-container {
+    position: relative;
+    height: 110vh;
+    overflow: hidden;
+}
+
+#myVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.4) brightness(0.6) saturate(0.8) sepia(0.2) hue-rotate(10deg);
+    z-index: -1;
+}
+
+
+.content h1 {
+    font-family: 'Chewy', cursive;
+}
+
+.content p {
+    font-family: 'Lato', sans-serif;
+}
+
+/* Order Form Section */
+.order-form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    margin-top: 50px; /* Added margin to ensure space below navbar */
+}
+
+.quiz-container {
+    width: 100%;
+    max-width: 600px; /* Ensure the form doesn't stretch too wide */
+}
+
+.quiz-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-card h2 {
+    font-family: 'Chewy', cursive;
+    font-size: 2em;
+    text-align: center;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.question select,
+.question input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.navigation button {
+    background-color: #824D2E; /* Rich Brown */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navigation button:hover {
+    background-color: #6b382d; /* Darker brown on hover */
+}
+
+#submitBtn {
+    width: 100%;
+    padding: 12px;
+    background-color: #6b382d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#submitBtn:hover {
+    background-color: #824d2e;
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Questionnaire</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Modak&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 
@@ -45,7 +45,7 @@
             cursor: pointer;
             border-radius: 4px;
             margin-top: 20px;
-            font-family: 'Modak', cursive;
+            font-family: Nunito;
         }
 
         button:disabled {
@@ -117,33 +117,37 @@
             <li><a href="About.html">About</a></li>
         </ul>
     </nav>
-
-
-    <!-- Main content: Questionnaire -->
-    <div class="questionnaire-container">
-        <div id="question-container">
-            <!-- Question and input field will be dynamically inserted here -->
+    <div class="content-container">
+        <!-- Image Section (Left side) -->
+        <div class="image-container">
+            <img src="images/CustomOrderImage.png" alt="Custom Ceramics Image">
         </div>
-        <div class="navigation">
-            <button id="prev-btn" onclick="prevQuestion()">Previous</button>
-            <button id="next-btn" onclick="nextQuestion()">Next</button>
-        </div>
-        <div id="submit-container" style="display: none;">
-            <!-- Summary of answers will appear here -->
-            <div class="summary-container" id="summary-container">
-                <!-- Summary will be displayed here -->
+
+         <!-- Questionnaire Form (Right side) -->
+         <div class="questionnaire-container">
+            <div id="question-container">
+                <!-- Question and input field will be dynamically inserted here -->
             </div>
-            <!-- Checkbox asking if the user wants a copy of the answers -->
-            <div class="checkbox-container">
-                <label>
-                    <input type="checkbox" id="email-copy-checkbox"> Would you like a copy of your answers emailed to you?
-                </label>
+            <div class="navigation">
+                <button id="prev-btn" onclick="prevQuestion()">Previous</button>
+                <button id="next-btn" onclick="nextQuestion()">Next</button>
             </div>
-            <!-- Submit button -->
-            <button id="submit-btn" onclick="submitForm()">Submit</button>
+            <div id="submit-container" style="display: none;">
+                <!-- Summary of answers will appear here -->
+                <div class="summary-container" id="summary-container">
+                    <!-- Summary will be displayed here -->
+                </div>
+                <!-- Checkbox asking if the user wants a copy of the answers -->
+                <div class="checkbox-container">
+                    <label>
+                        <input type="checkbox" id="email-copy-checkbox"> Would you like a copy of your answers emailed to you?
+                    </label>
+                </div>
+                <!-- Submit button -->
+                <button id="submit-btn" onclick="submitForm()">Submit</button>
+            </div>
         </div>
     </div>
-
     <script>
         // Array of questions
         const questions = [
